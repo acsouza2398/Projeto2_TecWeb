@@ -1,0 +1,43 @@
+{% extends "notes/index.html" %}
+
+{% load static %}
+{% block notes %}
+{% for note in notes %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'notes/css/getit.css' %}">
+
+
+<li class="card" key="{id}">
+  <h3 class="card-title" method="put">{{note.title}}</h3>
+  <div class="card-content">
+      <p class="card-content" method="put">{{note.content}}</p>
+  </div>
+  <form method = "post" action = "\delete">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{note.id}}" />
+    <button type="submit"class="btn_change">Deletar</button>
+  </form>
+
+  <form method = "post" action = "{% url 'note_edit' note.id %}">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{note.id}}" />
+    <div class="update_cl">
+      <input
+        value= "{{note.title}}"
+        name="titulo"
+      />
+      <input
+        name = "tag"
+        value = "{{note.tag.tag}}"> </input>
+      <textarea
+        name="detalhes"
+      > {{note.content}} </textarea>
+      <button type="submit" class="btn_change">Editar</button>
+    </div>
+  </form>
+  <script type="text/javascript" src="{% static 'notes/script/getit.js' %}"></script>
+</li>
+
+{% endfor %}
+
+{% endblock %}
