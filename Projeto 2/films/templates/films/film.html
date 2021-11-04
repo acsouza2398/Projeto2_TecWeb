@@ -1,0 +1,25 @@
+{% extends "films/index.html" %}
+
+{% load static %}
+{% block films %}
+{% for film in films %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'films/css/getit.css' %}">
+
+
+<li class="card" key="{id}">
+  <h3 class="card-title" method="put">{{film.title}}</h3>
+  <div class="card-content">
+      <p class="card-content" method="put">{{film.content}}</p>
+  </div>
+  <form method = "post" action = "\delete">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{film.id}}" />
+    <button type="submit"class="btn_change">Deletar</button>
+  </form>
+  <script type="text/javascript" src="{% static 'film/script/getit.js' %}"></script>
+</li>
+
+{% endfor %}
+
+{% endblock %}

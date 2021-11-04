@@ -1,12 +1,12 @@
-{% extends "notes/base.html" %}
-{% entends "notes/notes.html"}
+{% extends "films/base.html" %}
+{% entends "films/film.html"}
 {% load static %}
-<script src="{% static 'notes/script/getit.js' %}"></script>
+<script src="{% static 'films/script/getit.js' %}"></script>
 
 {% block content %}
 <body>
     <div class="appbar">
-        <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
+        <img src="{% static 'films/img/logo-getit.png' %}" class="logo" />
         <span class="subtitle">Como o Post-it, mas com outro verbo</span>
     </div>
 
@@ -19,19 +19,14 @@
           name="titulo"
           placeholder="Título"
         />
-        <textarea
-          class="autoresize"
-          name="detalhes"
-          placeholder="Digite o conteúdo..."
-        ></textarea>
         <button class="btn" type="submit">Criar</button>
       </form>
 
       <div class="card-container">
-        {% block notes %} {% endblock %}
+        {% block films %} {% endblock %}
       </div>
     </main>
 
-    <script type="text/javascript" src="{% static 'notes/script/getit.js' %}"></script>
+    <script type="text/javascript" src="{% static 'films/script/getit.js' %}"></script>
   </body>
 {% endblock %}
