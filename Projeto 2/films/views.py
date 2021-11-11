@@ -37,8 +37,10 @@ def index(request):
 
 
 @api_view(['GET', 'POST', 'DELETE'])
-def api_film(request, film_id):
+def api_film(request):
     try:
+        film_id = request.query_params.get('film_id')
+        print(film_id)
         film = Film.objects.get(id=film_id)
     except Film.DoesNotExist:
         raise Http404()
