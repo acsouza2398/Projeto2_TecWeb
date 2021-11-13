@@ -28,20 +28,19 @@ def index(request):
         # TAREFA: Utilize o title e content para criar um novo Note no banco de dados
         film = Film(title = title, content = content, rating = rating, img = img)
         film.save()
-        return redirect('index')
-    #versao final, por as prox 3 linhas dentro do if e deletar o render
-    all_films = Film.objects.all()
-    serialized_film = FilmSerializer(all_films, many=True)
-    #return Response(serialized_film.data)
-    return render(request, 'films/index.html', {'films': all_films})
+
+        all_films = Film.objects.all()
+        serialized_film = FilmSerializer(all_films, many=True)
+        return Response(serialized_film.data)
 
 
 @api_view(['GET', 'POST', 'DELETE'])
-def api_film(request):
+def api_film(request, film_id):
     try:
-        film_id = request.query_params.get('film_id')
+        #film_id = request.query_params.get('film_id')
         print(film_id)
         film = Film.objects.get(id=film_id)
+        print(film)
     except Film.DoesNotExist:
         raise Http404()
 
@@ -64,8 +63,7 @@ def api_film(request):
         film.img = dictio['poster']
         film.save()
     elif request.method == "DELETE":
-        id = request.POST.get('id')
-        film = Film.objects.get(id=id)
+        film = Film.objects.get(id=film_id)
         film.delete()
     serialized_film = FilmSerializer(film)
     return Response(serialized_film.data)
