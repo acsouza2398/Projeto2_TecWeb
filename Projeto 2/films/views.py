@@ -73,7 +73,8 @@ def api_film_list(request):
     if request.method == 'POST':
         new_film_data = request.data
         film = Film()
-        url = "https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/{title}".format(title = new_film_data['titulo'])
+        print(new_film_data)
+        url = "https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/{title}".format(title = new_film_data['title'])
 
         headers = {
             'x-rapidapi-host': "imdb-internet-movie-database-unofficial.p.rapidapi.com",
@@ -83,6 +84,7 @@ def api_film_list(request):
         response = requests.request("GET", url, headers=headers)
 
         dictio = json.loads(response.text)
+        print(dictio)
 
         film.title = dictio['title']
         film.content = dictio['plot']
