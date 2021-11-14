@@ -1,4 +1,5 @@
 API: https://rapidapi.com/hmerritt/api/imdb-internet-movie-database-unofficial/
 Funcionalidades: Ranking e favorito. Filmes rankeados na pagina principal com uma pagina secundaria pra mostrar os favoritos
 
-Heroku backend: https://sheltered-woodland-32459.herokuapp.com/
+Heroku backend: https://whispering-crag-34320.herokuapp.com/
+Heroku frontend: https://secret-cove-80908.herokuapp.com/
