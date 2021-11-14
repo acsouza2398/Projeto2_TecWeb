@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn films.wsgi
+web: gunicorn filmes.wsgi
