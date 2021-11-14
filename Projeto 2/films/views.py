@@ -37,8 +37,6 @@ def index(request):
 @api_view(['GET', 'POST', 'DELETE'])
 def api_film(request, film_id):
     try:
-        #film_id = request.query_params.get('film_id')
-        print(film_id)
         film = Film.objects.get(id=film_id)
         print(film)
     except Film.DoesNotExist:
