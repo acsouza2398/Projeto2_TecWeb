@@ -66,7 +66,7 @@ def api_film(request, film_id):
     serialized_film = FilmSerializer(film)
     return Response(serialized_film.data)
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST', 'OPTIONS'])
 def api_film_list(request):
     if request.method == 'POST':
         new_film_data = request.data
