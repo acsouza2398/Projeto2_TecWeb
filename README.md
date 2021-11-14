@@ -14,3 +14,4 @@ Funcionalidades implementadas:
 Github do Frontend: https://github.com/acsouza2398/Projeto2_TecWeb_frontend
     
 Link do Frontend: http://secret-cove-80908.herokuapp.com/
+Link do Backend: https://whispering-crag-34320.herokuapp.com/
