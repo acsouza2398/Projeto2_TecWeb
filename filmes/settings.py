@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-cw^=_vtki5e70zia=+hs8-p51taj&z_hr1+^yo9ng^3*1$4!lm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['whispering-crag-34320.herokuapp.com/', 'localhost', '127.0.0.1']
 
